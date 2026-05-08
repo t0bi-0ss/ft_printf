@@ -4,9 +4,9 @@ LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = ft_flag_checker.c ft_new_putchar_fd.c ft_new_putstr_fd.c\
+SRCS = ft_flag_cases.c ft_new_putchar_fd.c ft_new_putstr_fd.c\
 ft_printf.c ft_specifier_check.c ft_to_hex.c\
-ft_void_to_hex.c	   		    
+ft_address_to_hex.c	ft_uns_to_hex.c   		    
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

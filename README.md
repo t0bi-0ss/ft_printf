@@ -1,3 +1,5 @@
+# Libft 
+
 *This project has been created as part of 42 curriculum by tsordo-o.*
 
 ## Description
@@ -8,15 +10,15 @@ Libft is a library of functions that try to recreate the most used C standard fu
 
 ### Requirements
 
-The make utility and a C compiler must be installed.
+The make utility and gcc compiler must be installed.
 
 #### Linux
 
 Check first if utility is already installed:
 
 ```
-cc --version
-Ubuntu clang version 12.0.1-19ubuntu3
+gcc --version
+gcc (Ubuntu 12.3.0-1ubuntu1~22.04.3) 12.3.0
 ```
 
 ```
@@ -24,14 +26,22 @@ make --version
 GNU Make 4.3
 ```
 
-If no installation is found, installation is needed.
+If no installation is found, run:
+
+```
+sudo apt-get install make
+```
+
+```
+sudo apt update && sudo apt install build-essential
+```
 
 ### Installation
 
 Clone repo first. Run `make` to compile the library and use it. Included Makefile's commands:
 
 ```
-make all
+make all/make
 ```
 
 Compiles every `.c` file into a `.o` object file, then bundles them all into `libtf.a`.
@@ -86,52 +96,52 @@ typedef struct s_list
 
 | Name  | Brief Description |
 | ------------- |:-------------:|
-| isalpha      | checks for an alphabetic character     |
-| isdigit      | checks for a digit     |
-| isalnum      | checks for an alphanumeric character     |
-| isascii      | checks for a value included in the ASCII table     |
-| isprint      | checks for any printable character     |
-| memset      | fills bytes of memory with desired byte value     |
-| bzero      | erases data in set memory area     |
-| memcpy      | copies bytes from a source to a destination, overlap is not allowed     |
-| memmove      | copies bytes from a source to a destination, overlap is allowed     |
-| strlcpy      | copies source string to destination     |
-| strlcat      | concatenates source string to destination     |
-| toupper      | converts lowercase letters to uppercase     |
-| tolower      | converts uppercase letters to lowercase     |
-| strchr      | returns a pointer to the first occurrence of a character     |
-| strrchr      | returns a pointer to the last occurrence of a character     |
-| strncmp      | compares two strings     |
-| memchr      | scans bytes of memory for the first instance of a character     |
-| memcmp      | compares n bytes of memory     |
-| strnstr      | locates first occurrence of a substring in a 'big' string     |
-| atoi      | converts a string to an integer value     |
-| calloc      | allocates memory for an array of elements, setting their memory to zero     |
-| strdup      | duplicates a string     |
-| substr      | creates a subtring from a source string     |
-| strjoin      | creates a string result of the concatenation of two source strings     |
-| strtrim      | creates a string after deleting desired set of characters from the start and end of a source string     |
-| split      | creates an array of strings from a source string after 'spliting' it according to a given delimiter     |
-| itoa      | creates a string after converting a int to a string representation of it     |
-| strmapi      | creates a string after iterating a source string while aplying desired function to each of it's characters using their respective index    |
-| striteri      | iterates a string while running desired function to each of it's characters     |
-| putchar_fd      | sends a character to a specified file descriptor     |
-| putstr_fd      | sends a string to a specified file descriptor     |
-| putendl_fd      | sends a string to a specified file descriptor followed by a `new line`     |
-| putnbr_fd      | sends an int to a specified file descriptor     |
-| lstnew      | creates a new 'node' from a given `content`     |
-| lstadd_front      | adds a node to the beginning of a list     |
-| lstsize      | counts number of nodes in a list     |
-| lstlast      | returns list's last node     |
-| lstadd_back      | adds a node to the end of a list     |
-| lstdelone      | frees a node's content before freeing the node itself     |
-| lstclear      | deletes every node's content and frees them, from a list     |
-| lstiter      | iterates through list and aplies desired function to each node's `content`     |
-| lstmap      | creates a new list result of iterating a source list and aplying desired function to each node's `content`     |
+| [isalpha](#ft_isalpha) | checks for an alphabetic character |
+| [isdigit](#ft_isdigit) | checks for a digit |
+| [isalnum](#ft_isalnum) | checks for an alphanumeric character |
+| [isascii](#ft_isascii) | checks for a value included in the ASCII table |
+| [isprint](#ft_isprint) | checks for any printable character |
+| [memset](#ft_memset) | fills bytes of memory with desired byte value |
+| [bzero](#ft_bzero) | erases data in set memory area |
+| [memcpy](#ft_memcpy) | copies bytes from a source to a destination, overlap is not allowed |
+| [memmove](#ft_memmove) | copies bytes from a source to a destination, overlap is allowed |
+| [strlcpy](#ft_strlcpy) | copies source string to destination |
+| [strlcat](#ft_strlcat) | concatenates source string to destination |
+| [toupper](#ft_toupper) | converts lowercase letters to uppercase |
+| [tolower](#ft_tolower) | converts uppercase letters to lowercase |
+| [strchr](#ft_strchr) | returns a pointer to the first occurrence of a character |
+| [strrchr](#ft_strrchr) | returns a pointer to the last occurrence of a character |
+| [strncmp](#ft_strncmp) | compares two strings |
+| [memchr](#ft_memchr) | scans bytes of memory for the first instance of a character |
+| [memcmp](#ft_memcmp) | compares n bytes of memory |
+| [strnstr](#ft_strnstr) | locates first occurrence of a substring in a 'big' string |
+| [atoi](#ft_atoi) | converts a string to an integer value |
+| [calloc](#ft_calloc) | allocates memory for an array of elements, setting their memory to zero |
+| [strdup](#ft_strdup) | duplicates a string |
+| [substr](#ft_substr) | creates a subtring from a source string |
+| [strjoin](#ft_strjoin) | creates a string result of the concatenation of two source strings |
+| [strtrim](#ft_strtrim) | creates a string after deleting desired set of characters from the start and end of a source string |
+| [split](#ft_split) | creates an array of strings from a source string after 'spliting' it according to a given delimiter |
+| [itoa](#ft_itoa) | creates a string after converting a int to a string representation of it |
+| [strmapi](#ft_strmapi) | creates a string after iterating a source string while aplying desired function to each of it's characters using their respective index |
+| [striteri](#ft_striteri) | iterates a string while running desired function to each of it's characters |
+| [putchar_fd](#ft_putchar_fd) | sends a character to a specified file descriptor |
+| [putstr_fd](#ft_putstr_fd) | sends a string to a specified file descriptor |
+| [putendl_fd](#ft_putendl_fd) | sends a string to a specified file descriptor followed by a `new line` |
+| [putnbr_fd](#ft_putnbr_fd) | sends an int to a specified file descriptor |
+| [lstnew](#ft_lstnew) | creates a new 'node' from a given `content` |
+| [lstadd_front](#ft_lstadd_front) | adds a node to the beginning of a list |
+| [lstsize](#ft_lstsize) | counts number of nodes in a list |
+| [lstlast](#ft_lstlast) | returns list's last node |
+| [lstadd_back](#ft_lstadd_back) | adds a node to the end of a list |
+| [lstdelone](#ft_lstdelone) | frees a node's content before freeing the node itself |
+| [lstclear](#ft_lstclear) | deletes every node's content and frees them, from a list |
+| [lstiter](#ft_lstiter) | iterates through list and aplies desired function to each node's `content` |
+| [lstmap](#ft_lstmap) | creates a new list result of iterating a source list and aplying desired function to each node's `content` |
 
 ---
 ### Prototypes
-
+<a id="ft_isalpha"></a>
 ```
 int		ft_isalpha(int c);
 ```
@@ -144,6 +154,7 @@ checks c,  which must have the value of an unsigned char or EOF, for an alphabet
 The values returned are nonzero if the character c falls into the tested class, and zero if not.
 
 ---
+<a id="ft_isdigit"></a>
 ```
 int		ft_isdigit(int c);
 ```
@@ -156,6 +167,7 @@ checks c,  which must have the value of an unsigned char or EOF,
 The values returned are nonzero if the character c falls into the tested class, and zero if not.
 
 ---
+<a id="ft_isalnum"></a>
 ```
 int		ft_isalnum(int c);
 ```
@@ -168,6 +180,7 @@ checks c,  which must have the value of an unsigned char or EOF, for an alphanum
 The values returned are nonzero if the character c falls into the tested class, and zero if not.
 
 ---
+<a id="ft_isacii"></a>
 ```
 int		ft_isascii(int c);
 ```
@@ -181,6 +194,7 @@ checks wether c,  which must have the value of an unsigned char or EOF, is a 7-b
 The values returned are nonzero if the character c falls into the tested class, and zero if not.
 
 ---
+<a id="ft_isprint"></a>
 ```
 int		ft_isprint(int c);
 ```
@@ -193,6 +207,7 @@ checks c,  which must have the value of an unsigned char or EOF, for any printab
 The values returned are nonzero if the character c falls into the tested class, and zero if not.
 
 ---
+<a id="ft_memset"></a>
 ```
 void	*ft_memset(void *s, int c, size_t n);
 ```
@@ -206,6 +221,7 @@ The  memset()  function fills the first n bytes of the memory area pointed to by
 The memset() function returns a pointer to the memory area s.
 
 ---
+<a id="ft_bzero"></a>
 ```
 void	ft_bzero(void *s, size_t n);
 ```
@@ -218,6 +234,7 @@ The  bzero() function erases the data in the n bytes of the memory starting at t
 None
 
 ---
+<a id="ft_memcpy"></a>
 ```
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 ```
@@ -230,6 +247,7 @@ The  memcpy() function copies n bytes from memory area src to memory area dest. 
 The memcpy() function returns a pointer to dest.
 
 ---
+<a id="ft_memmove"></a>
 ```
 void	*ft_memmove(void *dest, const void *src, size_t n);
 ```
@@ -242,6 +260,7 @@ The memmove() function copies n bytes from memory area src to memory area dest. 
 The memmove() function returns a pointer to dest.
 
 ---
+<a id="ft_strlcpy"></a>
 ```
 size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 ```
@@ -255,6 +274,7 @@ The strlcpy() function copies up to size - 1 characters from the NUL-terminated 
 strlcpy() returns the total length of the string it tried to create.  That means the length of src.
 
 ---
+<a id="ft_strlcat"></a>
 ```
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 ```
@@ -268,6 +288,7 @@ strlcat() returns the total length of the string it tried to create. For strlcat
 Note, however, that if strlcat() traverses size characters without finding a NUL, the length of the string is considered to be size and the destination string will not be NUL-terminated (since there was no space for the NUL).  This keeps strlcat() from running off the end of a string.  In practice this should not happen (as it means that either size is incorrect or that dst is not a proper “C” string).  The check exists to prevent potential security problems in incorrect code.
 
 ---
+<a id="ft_tolower"></a>
 ```
 int			ft_tolower(int c);
 ```
@@ -280,6 +301,7 @@ If c is an uppercase letter, tolower() returns its lowercase  equivalent,  if a 
 The  value  returned is that of the converted letter, or c if the conversion was not possible.
 
 ---
+<a id="ft_toupper"></a>
 ```
 int			ft_toupper(int c);
 ```
@@ -292,6 +314,7 @@ If c is a lowercase letter, toupper() returns its uppercase equivalent, if an up
 The  value  returned is that of the converted letter, or c if the conversion was not possible.
 
 ---
+<a id="ft_strchr"></a>
 ```
 char		*ft_strchr(const char *s, int c);
 ```
@@ -304,6 +327,7 @@ The  strchr()  function returns a pointer to the first occurrence of the charact
 strchr() returns a pointer to the matched character or NULL if the character is not found.  The terminating null byte is considered part of the string, so that if c is specified as '\0', these functions return a pointer to the terminator.
 
 ---
+<a id="ft_strrchr"></a>
 ```
 char		*ft_strrchr(const char *s, int c);
 ```
@@ -316,6 +340,7 @@ The strrchr() function returns a pointer to the last occurrence of the character
 strrchr() returns a pointer to the matched character or NULL if the character is not found.  The terminating null byte is considered part of the string, so that if c is specified as '\0', these functions return a pointer to the terminator.
 
 ---
+<a id="ft_strncmp"></a>
 ```
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 ```
@@ -337,6 +362,7 @@ The strncmp() function returns an integer less than, equal to, or greater than z
 match, or be greater than s2.
 
 ---
+<a id="ft_memchr"></a>
 ```
 void		*ft_memchr(const void *s, int c, size_t n);
 ```
@@ -349,6 +375,7 @@ The  memchr() function scans the initial n bytes of the memory area pointed to b
 The  memchr() function returns a pointer to the matching byte or NULL if the character does not occur in the given memory area.
 
 ---
+<a id="ft_memcmp"></a>
 ```
 int			ft_memcmp(const void *s1, const void *s2, size_t n);
 ```
@@ -365,6 +392,7 @@ For a nonzero return value, the sign is determined by the sign of  the  differen
 If n is zero, the return value is zero.
 
 ---
+<a id="ft_strnstr"></a>
 ```
 char		*ft_strnstr(const char *big, const char *little,
 						size_t len);
@@ -378,6 +406,7 @@ The strnstr() function locates the first occurrence of the null-terminated strin
 If little is an empty string, big is returned; if little occurs nowhere in big, NULL is returned; otherwise a pointer to the first character of the first occurrence of little is returned.
 
 ---
+<a id="ft_atoi"></a>
 ```
 int			ft_atoi(const char *nptr);
 ```
@@ -392,6 +421,7 @@ The  string may begin with an arbitrary amount of white space (as determined by 
 The converted value or 0 on error.
 
 ---
+<a id="ft_calloc"></a>
 ```
 void		*ft_calloc(size_t nmemb, size_t size);
 ```
@@ -404,6 +434,7 @@ The calloc() function allocates memory for an array of nmemb elements of  size  
 The calloc()  function returns a pointer to the allocated memory, which is suitably aligned for any built-in type.  On error, it returns NULL. NULL  may also  be  returned by a successful call to malloc() with a size of zero, or by a successful call to calloc() with nmemb or size equal to zero.
 
 ---
+<a id="ft_strdup"></a>
 ```
 char		*ft_strdup(const char *s);
 ```
@@ -416,6 +447,7 @@ The  strdup() function returns a pointer to a new string which is a duplicate of
 On  success,  the strdup() function returns a pointer to the duplicated string.  It returns NULL if insufficient memory was available.
 
 ---
+<a id="ft_substr"></a>
 ```
 char		*ft_substr(char const *s, unsigned int start, size_t len);
 ```
@@ -429,6 +461,7 @@ The substring starts from the `start` index and has a max length of `len`.
 substr() returns resulting substring or NULL if memory reservation failed.
 
 ---
+<a id="ft_strjoin"></a>
 ```
 char		*ft_strjoin(char const *s1, char const *s2);
 ```
@@ -441,6 +474,7 @@ strjoin() reserves memory (with malloc(3)) and returns a new string, formed with
 New string or NULL if memory reservation failed.
 
 ---
+<a id="ft_strtrim"></a>
 ```
 char		*ft_strtrim(char const *s1, char const *set);
 ```
@@ -453,6 +487,7 @@ Reserves memory (with malloc(3)) and returns a copy of `s1` with any characters 
 Resulting `trimmed` string or NULL if memory reservation failed.
 
 ---
+<a id="ft_split"></a>
 ```
 char		**ft_split(char const *s, char c);
 ```
@@ -470,6 +505,7 @@ NULL if any of the memory reservations fail.
 Resulting array and each of it's strings can be freed with free().
 
 ---
+<a id="ft_itoa"></a>
 ```
 char		*ft_itoa(int n);
 ```
@@ -483,6 +519,7 @@ The string that represents the number.
 NULL if memory allocation failed.
 
 ---
+<a id="ft_strmapi"></a>
 ```
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 ```
@@ -497,6 +534,7 @@ The string created after the correct use of `f` over each character.
 NULL if the memory reservation failed.
 
 ---
+<a id="ft_striteri"></a>
 ```
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 ```
@@ -509,6 +547,7 @@ Aplies the function `f` to each of string `s`'s characters, passing as arguments
 None.
 
 ---
+<a id="ft_putchar_fd"></a>
 ```
 void		ft_putchar_fd(char c, int fd);
 ```
@@ -521,6 +560,7 @@ Sends character `c` to specified file descriptor `fd`.
 None.
 
 ---
+<a id="ft_putstr_fd"></a>
 ```
 void		ft_putstr_fd(char *s, int fd);
 ```
@@ -533,6 +573,7 @@ Sends string `s` to specified file descriptor `fd`.
 None.
 
 ---
+<a id="ft_putendl_fd"></a>
 ```
 void		ft_putendl_fd(char *s, int fd);
 ```
@@ -545,6 +586,7 @@ Sends string `s` to given file descriptor `fd`, followed by a `new line`.
 None.
 
 ---
+<a id="ft_putnbr_fd"></a>
 ```
 void		ft_putnbr_fd(int n, int fd);
 ```
@@ -557,6 +599,7 @@ Sends integer `n` to given file descriptor `fd`.
 None.
 
 ---
+<a id="ft_lstnew"></a>
 ```
 t_list		*ft_lstnew(void *content);
 ```
@@ -569,6 +612,7 @@ Reserves memory (with malloc(3)) and returns a `new` node. `content` variable is
 A pointer to the `new` node.
 
 ---
+<a id="ft_lstadd_front"></a>
 ```
 void		ft_lstadd_front(t_list **lst, t_list *new);
 ```
@@ -581,6 +625,7 @@ Add `new` node to the beginning of the list `lst`.
 None.
 
 ---
+<a id="ft_lstsize"></a>
 ```
 int			ft_lstsize(t_list *lst);
 ```
@@ -593,6 +638,7 @@ Counts number of nodes in a list `lst`.
 List `lst` length.
 
 ---
+<a id="ft_lstlast"></a>
 ```
 t_list		*ft_lstlast(t_list *lst);
 ```
@@ -605,6 +651,7 @@ Returns the last node of a list `lst`.
 List `lst` last node.
 
 ---
+<a id="ft_lstadd_back"></a>
 ```
 void		ft_lstadd_back(t_list **lst, t_list *new);
 ```
@@ -617,6 +664,7 @@ Add `new` node to the end of the list `lst`.
 None.
 
 ---
+<a id="ft_lstdelone"></a>
 ```
 void		ft_lstdelone(t_list *lst, void (*del)(void *));
 ```
@@ -629,6 +677,7 @@ Takes a node `lst` as a parameter and frees it's content using the `del` functio
 None.
 
 ---
+<a id="ft_lstclear"></a>
 ```
 void		ft_lstclear(t_list **lst, void (*del)(void *));
 ```
@@ -641,6 +690,7 @@ Deletes node `lst` content and frees it, aswell as every consecutive node, using
 None.
 
 ---
+<a id="ft_lstiter"></a>
 ```
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 ```
@@ -653,6 +703,7 @@ Iterates list `lst` and aplies function `f` to each of it's nodes content.
 None. 
 
 ---
+<a id="ft_lstmap"></a>
 ```
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
