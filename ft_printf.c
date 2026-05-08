@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 18:43:01 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/08 19:19:21 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/08 19:21:27 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static int	bytes_written(char const *format, va_list args, int *counter_ptr)
 {
-	int	counter;
 	int	bytes_written;
 
-	counter = 0;
 	while (*format)
 	{
 		if (*format == '%')
@@ -29,10 +27,10 @@ static int	bytes_written(char const *format, va_list args, int *counter_ptr)
 			bytes_written = ft_new_putchar_fd(*format, 1);
 		if (bytes_written < 0)
 			return (-1);
-		counter += bytes_written;
+		*counter_ptr += bytes_written;
 		format++;
 	}
-	return (counter);
+	return (0);
 }
 
 int	ft_printf(char const *format, ...)
