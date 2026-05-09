@@ -6,11 +6,11 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 18:43:01 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 18:24:38 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 19:41:30 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	bytes_written(char const *format, va_list args, int *counter_ptr)
 {

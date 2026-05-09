@@ -6,11 +6,11 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 12:13:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 19:14:13 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 19:41:15 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_printnum(va_list args, char flag)
 {

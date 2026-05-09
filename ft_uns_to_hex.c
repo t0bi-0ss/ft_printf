@@ -6,11 +6,11 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:09:09 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 18:37:06 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 19:41:47 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 // if flag is == 1 it returns the hex value in capitals
 int	ft_uns_to_hex(unsigned int num, char flag)
