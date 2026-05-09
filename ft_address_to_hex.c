@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:09:09 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/08 20:03:21 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 18:40:24 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_address_to_hex(uintptr_t address, char flag)
 
 	quotient = address / 16;
 	bytes = 0;
+	if (!address)
+		return (ft_new_putstr_fd("(nil)", 1));
 	if (flag == 1)
 	{
 		checker = ft_new_putstr_fd("0x", 1);

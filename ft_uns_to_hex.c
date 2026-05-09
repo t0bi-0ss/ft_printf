@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:09:09 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/08 20:08:33 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 18:37:06 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	ft_uns_to_hex(unsigned int num, char flag)
 		checker = ft_new_putchar_fd(ft_toupper(ft_to_hex(num % 16)), 1);
 		if (checker < 0)
 			return (-1);
+		return (++bytes_written);
 	}
 	checker = ft_new_putchar_fd(ft_to_hex(num % 16), 1);
 	if (checker < 0)

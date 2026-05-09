@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 18:43:01 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/08 19:21:27 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/09 18:24:38 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	bytes_written(char const *format, va_list args, int *counter_ptr)
 		if (*format == '%')
 		{
 			format++;
-			bytes_written = ft_flag_cases(args, *format, counter_ptr);
+			bytes_written = ft_flag_cases(args, *format);
 		}
 		else
 			bytes_written = ft_new_putchar_fd(*format, 1);
