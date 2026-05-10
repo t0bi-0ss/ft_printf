@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 12:37:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 19:42:10 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/10 14:24:00 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ char	*ft_utoa(unsigned int n);
 int		ft_flag_cases(va_list args, char flag);
 int		ft_address_to_hex(uintptr_t address, char flag);
 int		ft_uns_to_hex(unsigned int num, char flag);
-int		ft_printf(char const *, ...);
+int		ft_printf(char const *format, ...);
 
 #endif
