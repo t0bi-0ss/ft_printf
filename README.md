@@ -2,7 +2,22 @@
 
 ## Description
 
-Libft is a library of functions that try to recreate the most used C standard functions, as accurate as possible. The objective of this project is to learn and understand the behavior and usage of these functions.
+`Libftprintf` is an improvement of the `Libft` library (see `Libft` <a href="https://github.com/t0bi-0ss/libft/blob/main/README.md">README.md</a>), as it contains all functions included in it with the addition of `ft_printf()`, a function that tries to recreate the same utility and way of working that the `printf()` function has, with the exception that is limited to the following format specifiers:
+
+* `%c`
+* `%s`
+* `%p`
+* `%d`
+* `%i`
+* `%u`
+* `%x`
+* `%X`
+* `%%`
+#### Disclaimer:
+`ft_printf()` doesn't take `flags`, `width`, `.precision`, or `length`.
+
+The intention for this project is to improve further on my coding skills while learning new concepts needed to acomplish the recreation of the `printf()` function, like `variadic functions`, `va_list` structure and some of the macros related to it `(va_start, va_arg, va_end)`.
+
 
 ## Instructions
 
@@ -43,7 +58,8 @@ Runs `fclean` then rebuilds everything from scratch.
 
 ### Usage
 
-`libftprintf.a` is a static library, meaning it's merged directly into the program's executable during the final linking phase of compilation. Therefore, in order to use it in another project it must be passed to the compiler with the following command:
+#### libftprintf library:
+`libftprintf.a` is a static library, meaning it's merged directly into the program's executable during the final linking phase of compilation. Therefore, in order to use it in another project, `if located in the same directory as main.c`, it must be passed to the compiler with the following command:
 
 ```
 cc main.c libftprintf.a -o <program_name>
@@ -54,6 +70,42 @@ The following header must also be include in the source:
 ```
 #include "ft_printf.h"
 ```
+
+#### ft_printf():
+
+##### Prototype
+
+```
+int		ft_printf(char const *format, ...);
+```
+
+
+##### Utilization:
+
+Writes the string pointed by `format` to the standard output (`stdout`). If `format` includes format specifiers (`subsequences beginning with %`), the additional arguments `(...)` following `format` are formatted and inserted in the resulting string replacing their respective specifiers.
+
+##### Arguments:
+
+`ft_printf()` function takes a pointer to a string (in this case, called `format`) and `(...)`, meaning it may expect a sequence of additional arguments.
+
+#### Return value:
+
+`ft_printf()` function will return the number of bytes written to `stdout`, if successful. If any error occurs while running, the process will stop and a `(-1)` will be returned, signaling something went wrong.
+
+#### Format specifiers:
+
+* `%c`: defines and interprets corresponding argument as `char`
+
+* `%s`: defines and interprets corresponding argument as `string of characters`
+* `%p`: defines and interprets corresponding argument as `pointer address`
+* `%d`: defines and interprets corresponding argument as `signed decimal integer`
+* `%i`: defines and interprets corresponding argument as `signed decimal integer`
+* `%u`: defines and interprets corresponding argument as `unsigned decimal integer`
+* `%x`: defines and interprets corresponding argument as `unsigned hexadecimal integer` (lowercase)
+* `%X`: defines and interprets corresponding argument as `unsigned hexadecimal integer` (uppercase)
+* `%%`: acts as an `escape character`, meaning it is used to signal ft_printf() to just print `'%'` 
+
+
 ---
 ## Notes
 
@@ -69,11 +121,11 @@ A control `error` was added everytime the `write()` function is called, so that,
 ## Resources
 *The following resources have been used in order to successfully finish this project.*
 
-42's ft_printf subject.pdf:
+42's ft_printf <a href="https://cdn.intra.42.fr/pdf/pdf/189915/es.subject.pdf">subject.pdf</a>:
 > The main guide to determined project's content and requirements.
 
-Francinette a.k.a Paco:
-> Unofficial tester tool, used only to help to debug and check for errors.
+Francinette a.k.a Paco (git repository <a href="https://github.com/xicodomingues/francinette">here</a>):
+> Unofficial tester tool, used exclusively to help to debug and check for errors.
 
-Claude:
-> A next-generation AI assistant, used only to understand simple matters like type casting and so.
+<a href="https://claude.ai/login">Claude</a>:
+> A next-generation AI assistant, used exclusively to understand new concepts and their functionality, like variadic functions, va_list structures and the macros related to it.
