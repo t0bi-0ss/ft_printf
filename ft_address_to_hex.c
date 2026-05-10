@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:09:09 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 19:41:12 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/10 16:04:43 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	ft_address_to_hex(uintptr_t address, char flag)
 {
 	int			checker;
 	int			bytes;
-	uintptr_t	quotient;
 
-	quotient = address / 16;
 	bytes = 0;
 	if (!address)
 		return (ft_new_putstr_fd("(nil)", 1));
@@ -29,9 +27,9 @@ int	ft_address_to_hex(uintptr_t address, char flag)
 			return (-1);
 		bytes += 2;
 	}
-	if (quotient > 0)
+	if (address / 16 > 0)
 	{
-		checker = ft_address_to_hex(quotient, 0);
+		checker = ft_address_to_hex(address / 16, 0);
 		if (checker < 0)
 			return (-1);
 		bytes += checker;
