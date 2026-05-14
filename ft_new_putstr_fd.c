@@ -6,10 +6,11 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 14:32:03 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/10 16:11:54 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/14 12:50:29 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <unistd.h>
 
 int	ft_new_putstr_fd(char *s, int fd)
