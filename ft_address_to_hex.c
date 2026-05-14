@@ -6,13 +6,13 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:09:09 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/10 16:04:43 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:02:59 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_address_to_hex(uintptr_t address, char flag)
+int	ft_address_to_hex(uintptr_t address, int print_prefix)
 {
 	int			checker;
 	int			bytes;
@@ -20,7 +20,7 @@ int	ft_address_to_hex(uintptr_t address, char flag)
 	bytes = 0;
 	if (!address)
 		return (ft_new_putstr_fd("(nil)", 1));
-	if (flag == 1)
+	if (print_prefix == 1)
 	{
 		checker = ft_new_putstr_fd("0x", 1);
 		if (checker < 0)

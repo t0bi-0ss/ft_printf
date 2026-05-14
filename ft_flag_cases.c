@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 12:13:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 19:41:15 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:22:38 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ static int	ft_printnum(va_list args, char flag)
 	else if (flag == 'u')
 		str = ft_utoa(va_arg(args, unsigned int));
 	bytes_written = ft_new_putstr_fd(str, 1);
+	if (bytes_written == 6)
+	{
+		free(str);
+		write(1, "Malloc allocation failed", 24);
+		return (-1);
+	}
 	if (bytes_written < 0)
 	{
 		free(str);
@@ -50,5 +56,9 @@ int	ft_flag_cases(va_list args, char flag)
 		return (ft_uns_to_hex(va_arg(args, unsigned int), 1));
 	if (flag == '%')
 		return (ft_new_putchar_fd('%', 1));
+	else 
+		if (ft_new_putchar_fd('%', 1) < 0)
+			return (-1);
+		return (ft_new_putchar_fd(flag, 1));
 	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 18:43:01 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/09 21:10:13 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:05:16 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,12 @@ int	ft_printf(char const *format, ...)
 	va_list	args;
 	int		counter;
 	int		checker;
-	int		*counter_ptr;
 
 	if (!format)
 		return (-1);
 	counter = 0;
-	counter_ptr = &counter;
 	va_start(args, format);
-	checker = bytes_written(format, args, counter_ptr);
+	checker = bytes_written(format, args, &counter);
 	if (checker < 0)
 		return (-1);
 	va_end(args);
