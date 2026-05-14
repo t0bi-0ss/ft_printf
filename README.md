@@ -14,7 +14,8 @@
 * `%X`
 * `%%`
 #### Disclaimer:
-`ft_printf()` doesn't take `flags`, `width`, `.precision`, or `length`.
+* `ft_printf()` doesn't take `flags`, `width`, `.precision`, or `length`.
+* if a `%` character is found followed by a `char` not within the supported format specifiers `ft_printf` will print "%`char`".
 
 The intention for this project is to improve further on my coding skills while learning new concepts needed to acomplish the recreation of the `printf()` function, like `variadic functions`, `va_list` structure and some of the macros related to it `(va_start, va_arg, va_end)`.
 
@@ -90,7 +91,7 @@ Writes the string pointed by `format` to the standard output (`stdout`). If `for
 
 #### Return value:
 
-`ft_printf()` function will return the number of bytes written to `stdout`, if successful. If any error occurs while running, the process will stop and a `(-1)` will be returned, signaling something went wrong.
+`ft_printf()` function will return the number of bytes written to `stdout` `(fd = 1)`, if successful. If any error occurs while running, the process will stop and a `(-1)` will be returned, signaling something went wrong.
 
 #### Format specifiers:
 
