@@ -6,7 +6,7 @@
 /*   By: tsordo-o <tsordo-o@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 12:13:40 by tsordo-o          #+#    #+#             */
-/*   Updated: 2026/05/14 13:22:38 by tsordo-o         ###   ########.fr       */
+/*   Updated: 2026/05/14 13:59:16 by tsordo-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,12 @@ static int	ft_printnum(va_list args, char flag)
 		str = ft_itoa(va_arg(args, int));
 	else if (flag == 'u')
 		str = ft_utoa(va_arg(args, unsigned int));
-	bytes_written = ft_new_putstr_fd(str, 1);
-	if (bytes_written == 6)
+	if (!str)
 	{
-		free(str);
-		write(1, "Malloc allocation failed", 24);
+		write(2, "Malloc() allocation failed in printnum", 38);
 		return (-1);
 	}
+	bytes_written = ft_new_putstr_fd(str, 1);
 	if (bytes_written < 0)
 	{
 		free(str);
